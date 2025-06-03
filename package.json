@@ -1,0 +1,16 @@
+{
+  "name": "based",
+  "version": "1.0.0",
+  "description": "Based is a list of web pages that have been redesigned with [Base CSS](https://github.com/toheeb/base)",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.0"
+  }
+}
