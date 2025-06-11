@@ -92,6 +92,7 @@
 
     button[type=submit] {
       background: #2467e3;
+      margin-top: var(--bbg-100);
       color: white;
       transition: all 0.1s linear 0s;
     }
@@ -258,6 +259,10 @@
       justify-content: space-between;
     }
 
+    .window-bg {
+      display: block;
+    }
+
     .window-bg__color-one {
       fill: #A43DF5;
     }
@@ -286,7 +291,6 @@
 
 
       footer > p {
-        justify-content: start;
         position: fixed;
         bottom: 0;
         left: 1.75rem;
@@ -507,14 +511,14 @@
             <p>
               <label>
                 <span>Email address</span>
-                <input type="email" placeholder="Enter your email address">
+                <input type="email">
               </label>
               <label>
                 <span>Password</span>
-                <input type="password" placeholder="Enter password (min. of 8 characters)">
+                <input type="password">
               </label>
               <button class="show-password">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10.3867 7.99995C10.3867 9.31995 9.31999 10.3866 7.99999 10.3866C6.67999 10.3866 5.61333 9.31995 5.61333 7.99995C5.61333 6.67995 6.67999 5.61328 7.99999 5.61328C9.31999 5.61328 10.3867 6.67995 10.3867 7.99995Z" stroke="#2D3443" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8 13.5133C10.3533 13.5133 12.5467 12.1266 14.0733 9.72665C14.6733 8.78665 14.6733 7.20665 14.0733 6.26665C12.5467 3.86665 10.3533 2.47998 8 2.47998C5.64667 2.47998 3.45334 3.86665 1.92667 6.26665C1.32667 7.20665 1.32667 8.78665 1.92667 9.72665C3.45334 12.1266 5.64667 13.5133 8 13.5133Z" stroke="#2D3443" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <svg aria-label="Password Visibility Toggle" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10.3867 7.99995C10.3867 9.31995 9.31999 10.3866 7.99999 10.3866C6.67999 10.3866 5.61333 9.31995 5.61333 7.99995C5.61333 6.67995 6.67999 5.61328 7.99999 5.61328C9.31999 5.61328 10.3867 6.67995 10.3867 7.99995Z" stroke="#2D3443" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8 13.5133C10.3533 13.5133 12.5467 12.1266 14.0733 9.72665C14.6733 8.78665 14.6733 7.20665 14.0733 6.26665C12.5467 3.86665 10.3533 2.47998 8 2.47998C5.64667 2.47998 3.45334 3.86665 1.92667 6.26665C1.32667 7.20665 1.32667 8.78665 1.92667 9.72665C3.45334 12.1266 5.64667 13.5133 8 13.5133Z" stroke="#2D3443" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
               </button>
               <button type="submit">
                 Login
@@ -545,9 +549,9 @@
         </p>
       </footer>
     </main>
-    <div>
+    <div hidden class="window-bg">
       <p>
-        <svg preserveAspectRatio="xMidYMax" class="window-bg" xmlns="http://www.w3.org/2000/svg" width="1440" height="272" viewBox="0 0 1440 272" fill="none">
+        <svg preserveAspectRatio="xMidYMax" xmlns="http://www.w3.org/2000/svg" width="1440" height="272" viewBox="0 0 1440 272" fill="none">
           <g opacity="0.26">
             <g filter="url(#filter0_f_1_37570)">
               <path class="window-bg__color-one" d="M133.657 407.523L38.5295 233.128L81.2126 219.81L158.086 341.508L285.259 295.318L319.444 360.28L133.657 407.523Z"/>
@@ -637,7 +641,7 @@
         </svg>
       </p>
     </div>
-    <div class="splash-screen">
+    <div hidden class="splash-screen">
       <p>
         <svg viewBox="-8 -8 34 34" width="77" height="77" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <defs>
