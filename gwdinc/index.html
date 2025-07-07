@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grace Walker Design Inc — Recode</title>
+  <link rel="stylesheet" href="https://unpkg.com/@toheeb/base@1.6.1/base.css" title="Base">
+  <script src="https://unpkg.com/@toheeb/base@1.6.1/base-settings.js"></script>
+  <link rel="canonical" href="https://www.gracewalker.ca/">
+
+  <style title="Base">
+    @font-face {
+      font-family: 'Halbfett';
+      src: url("./fonts/halbfett.woff2");
+      font-weight: 600;
+    }
+
+    @font-face {
+      font-family: 'Soehne';
+      src: url("./fonts/soehne-buch.woff2");
+      font-weight: 400;
+    }
+
+    @font-face {
+      font-family: 'Soehne';
+      src: url("./fonts/soehne-dreiviertelfett.woff2");
+      font-weight: 600;
+    }
+
+    @font-face {
+      font-family: 'Tiempos Headline';
+      src: url('./fonts/tiempos-headline-regular.woff2');
+      font-weight: 400;
+    }
+
+    :root {
+      --base-font-size: 1.125;
+      --base-font-family: Soehne, system-ui;
+      --base-line-length: 31rem;
+      /* --base-corner-radius: 0; */
+
+      /* --base-font-scale: 1.14; */
+      /* --base-line-height: .45; */
+    }
+    </style>
+
+<style>
+  
+    :root {
+      --base-font-scale-toggle: 0;
+      --base-font-family-toggle: 0;
+      --base-font-size-toggle: 0;
+      --base-line-height-toggle: 0;
+      --base-line-length-toggle: 0;
+      --base-block-gap-toggle: 0;
+    }
+    
+    /* Reset Base */
+
+    section, mark {
+      border-radius: 0;
+    }
+
+
+    main, header, footer, hgroup, section, p {
+      padding: 0;
+      margin: 0;
+      background: none;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    a[href]::after {
+      content: none;
+    }
+
+    img {
+      margin: 0;
+    }
+
+    form {
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+
+    button {
+      border: 0;
+    }
+
+    .sr-only:not(:focus):not(:active) {
+      clip: rect(0 0 0 0); 
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap; 
+      width: 1px;
+
+      /* ?? */
+      top: -9999px;
+    }
+
+
+
+
+
+    [role=tablist] {
+      display: block;
+    }
+
+
+    section:has(h1) {
+      background-color: #ff5e30;
+      min-height: 100svh;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+    }
+
+    h1 {
+      padding: 1.75rem;
+    }
+
+    h1 svg {
+      height: auto;
+      width: 100%;
+      max-width: 440px;
+      fill: #F3ECE4;
+    }
+
+    .primary-content {
+      display: flex;
+      gap: 1.5rem;
+      overflow: auto;
+      padding: 1.75rem;
+
+      /* To avoid clipping box shadow of intro tab */
+      padding-top: 40px;
+    }
+
+    .primary-content > * {
+      aspect-ratio: 1;
+      flex: none;
+      width: 80vmin;
+      max-width: 31rem;
+      overflow: auto;
+      border-radius: 30px;
+      position: relative;
+    }
+
+    
+    .intro-tab {
+      background-color: #e8512a;
+      box-shadow: 7px 7px 40px 6px #00000017;
+      padding: 1.25rem;
+      font-weight: 600;
+      color: #f3ece4;
+      position: relative;
+    }
+
+    .intro-tab [role=tab] {
+      width: 48px;
+      height: 48px;
+      border-radius: 48px;
+      color: white;
+      background-color: #f3ece41a;
+      border: 0;
+      position: absolute;
+
+      /* values from padding of intro-tab */
+      bottom: 1.25rem;
+      right: 1.25rem;
+    }
+
+    .intro-tab [role=tabpanel]:not([hidden]) {
+      display: grid;
+      align-content: space-between;
+      height: 100%;
+      gap: 2rem;
+    }
+
+    .intro-tab__content {
+      font-size: clamp(1rem, 2.5vmax, 1.6rem);
+    }
+
+    .intro-tab__links {
+      display: flex;
+      flex-flow: row wrap;
+      gap: .5rem 1rem;
+      font-size: calc(var(--bfs-075) * 1rem);
+
+      /* 4rem = tab width + row gap = 3rem + 1rem */
+      max-width: calc(100% - 4rem);
+    }
+    
+    .intro-tab__links a {
+      text-decoration: underline;
+      text-underline-position: under;
+      text-underline-offset: .05em;
+    }
+    
+
+    
+    .photo-tab {
+      position: relative;
+    }
+
+    .photo-tab [role=tab] {
+      width: 48px;
+      height: 48px;
+      border-radius: 48px;
+      color: white;
+      background-color: #2e596c;
+      border: 0;
+      position: absolute;
+
+      /* values from padding of intro-tab */
+      bottom: 1.25rem;
+      left: 1.25rem;
+    }
+
+
+
+    
+    .course-tab {
+      padding: clamp(14px, 5vmin, 38px);
+      background-color: #c3dbef;
+      color: #253e29;
+      position: relative;
+    }
+
+    .course-tab__bg {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .course-tab__lead {
+      font-size: clamp(1.5rem, 4vmax, 3rem);
+      line-height: 1.2;
+      font-family: "Tiempos Headline";
+      font-weight: normal;
+    }
+
+    .course-tab__lead-highlight {
+      background-color: #dbff85;
+      padding-inline-end: 4px;
+    }
+
+    .course-tab__content {
+      position: relative;
+      z-index: 1;
+
+      display: grid;
+      height: 100%;
+      align-content: space-between;
+    }
+
+    .course-tab__link {
+      padding: .7em 1.2em;
+      border-radius: 4rem;
+      background-color: #ff5e30;
+      font-weight: 700;
+      transition-timing-function: cubic-bezier(.165, .84, .44, 1), cubic-bezier(.165, .84, .44, 1);
+      transition-duration: .3s, .3s;
+      box-shadow: inset 0 0 #0000;
+      color: white;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .course-tab__link:hover {
+      box-shadow: inset 0 0 0 100px #00000026;
+    }
+
+    .course-tab__content-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+    }
+
+    .fff-brand {
+      display: block;
+    }
+
+    
+    .work-tab {
+      padding: 1.25rem 0 0 1.25rem;
+      background-color: #2e596c;
+    }
+
+    .work-tab [role=tablist] {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+
+      display: flex;
+      gap: .5rem;
+    }
+
+    .work-tab [role=tab] {
+      width: 48px;
+      height: 48px;
+      border-radius: 48px;
+      color: white;
+      background-color: #f3ece41a;
+      border: 0;
+    }
+
+    .work-tab [role=tabpanel],
+    .work-tab [role=tabpanel] > *:only-child {
+      height: 100%;
+      width: 100%;
+    }
+
+    .work {
+      background-color: #2e596c;
+      overflow: hidden;
+    }
+
+    .work__head {
+      display: grid;
+
+      /* 7.25rem is sum of 2 tabs (6rem), gap (.5rem), and right position of tablist (1.25rem) */
+      max-width: calc(100% - 7.25rem);
+      padding-inline-end: .5rem;
+      color: white;
+    }
+
+    .work__link {
+      font-weight: 700;
+    }
+
+    .work__roles {
+      opacity: .6;
+      font-size: calc(var(--bfs-075) * 1rem);
+    }
+
+    .work__shot {
+      object-fit: cover;
+      object-position: 0% 0%;
+      box-shadow: -5px -5px 10px #0003;
+      aspect-ratio: 4/3;
+      border-radius: 1rem 0 0 0;
+    }
+
+    .work-tab [role=tabpanel] > *:only-child {
+      display: grid;
+      align-content: space-between;
+      gap: 1rem;
+    }
+
+
+
+    .base-settings {
+      position: absolute;
+      top: .5rem;
+      right: .5rem;
+      background: transparent;
+      color: #253e29;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div>
+    <main>
+      <section class="page">
+        <hgroup>
+          <h1>
+            <abbr title="Grace Walker Design Inc.">
+              <svg class="brand-mark" width="157" height="48" viewBox="0 0 157 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M149.312 32.8433C149.312 30.8653 150.876 29.3013 152.854 29.3013C154.786 29.3013 156.396 30.8653 156.396 32.8433C156.396 34.8213 154.786 36.3853 152.854 36.3853C150.876 36.3853 149.312 34.8213 149.312 32.8433Z"/>
+                <path d="M132.61 22.4013C132.61 28.4733 135.462 32.5673 140.154 32.5673C143.144 32.5673 145.214 31.2333 146.732 28.9333L147.422 29.2553C145.996 33.9013 142.822 36.3853 138.406 36.3853C132.334 36.3853 128.056 31.7393 128.056 24.7013C128.056 17.0653 132.518 11.3613 139.556 11.3613C143.926 11.3613 146.778 13.2013 146.778 16.4213C146.778 17.7553 146.088 18.8593 145.168 19.3653H142.132C142.224 18.7673 142.316 18.1233 142.316 17.2953C142.316 14.9953 141.534 12.9253 138.728 12.9253C134.91 12.9253 132.61 17.0653 132.61 22.4013Z"/>
+                <path d="M119.32 32.4293V18.9973C119.32 15.9153 118.078 14.5353 115.456 14.5353C113.294 14.5353 111.27 15.6393 109.66 16.9273V32.4293C109.66 34.1313 110.396 34.4533 112.65 34.5913V35.9253H101.472V34.5913C103.772 34.4533 104.508 34.1313 104.508 32.4293V16.0073L101.61 14.3973V13.7533L109.062 11.3613H109.844L109.66 15.7773C111.73 13.4313 114.398 11.3613 118.078 11.3613C122.356 11.3613 124.472 13.7993 124.472 18.7673V32.4293C124.472 34.1313 125.208 34.4533 127.508 34.5913V35.9253H116.284V34.5913C118.584 34.4533 119.32 34.1313 119.32 32.4293Z"/>
+                <path d="M96.7671 11.3614V32.4294C96.7671 34.1314 97.5031 34.4534 99.8031 34.5914V35.9254H88.5791V34.5914C90.8791 34.4534 91.6151 34.1314 91.6151 32.4294V16.0074L88.7171 14.3974V13.7534L96.0311 11.3614H96.7671ZM94.0531 8.09538C92.1671 8.09538 90.7871 6.62338 90.7871 4.87538C90.7871 3.08138 92.1671 1.60938 94.0531 1.60938C95.9391 1.60938 97.3651 3.08138 97.3651 4.87538C97.3651 6.62338 95.9391 8.09538 94.0531 8.09538Z"/>
+                <path d="M73.2657 14.0459C69.0797 14.0459 66.4577 18.0479 66.4577 24.0739C66.4577 29.6859 68.8957 34.0099 73.4497 34.0099C75.3817 34.0099 76.9457 33.3659 78.1417 32.1239V20.3479C78.1417 16.3919 76.2097 14.0459 73.2657 14.0459ZM78.1417 5.48993L75.2438 3.92593V3.23594L82.5577 0.981934H83.2937V32.3539C83.2937 33.9179 83.3857 34.3319 85.3177 34.5159L86.5137 34.6079V35.8039L78.8777 37.4599H77.9577L78.1417 33.1819C76.3017 35.7119 74.0017 37.4599 70.7357 37.4599C65.1237 37.4599 61.4897 32.8139 61.4897 26.0979C61.4897 17.5879 66.4577 12.4819 72.9437 12.4819C75.1977 12.4819 76.9917 13.1259 78.1417 14.1839V5.48993Z"/>
+                <path d="M52.0878 30.56L57.2858 16.99C57.4698 16.576 57.5158 16.162 57.5158 15.84C57.5158 14.69 56.4578 14.46 54.4798 14.23V12.896H62.0698V14.23C60.4138 14.644 60.0918 14.966 59.7238 15.932L51.2138 37.414H49.6958L44.1758 22.142L38.1958 37.414H36.7238L27.9378 15.932C27.5238 14.966 27.2478 14.644 25.5918 14.23V12.896H36.5398V14.23C34.6078 14.46 33.6418 14.69 33.6418 15.794C33.6418 16.162 33.6878 16.53 33.8718 16.99L39.0698 30.744L43.3018 19.658L41.9218 15.932C41.5998 14.966 41.2318 14.598 39.6678 14.23V12.896H50.2018V14.23C48.1778 14.46 47.1198 14.644 47.1198 15.84C47.1198 16.162 47.2118 16.53 47.3498 16.99L52.0878 30.56Z"/>
+                <path d="M11.9055 28.26C10.3875 28.26 8.91552 28.03 7.58152 27.524C6.56952 28.582 5.83352 29.64 5.83352 30.606C5.83352 31.71 6.43152 32.308 7.62752 32.308H16.7355C21.5195 32.308 24.3715 34.286 24.3715 38.288C24.3715 43.992 18.5295 47.212 11.3075 47.212C4.91352 47.212 0.95752 45.096 0.95752 41.416C0.95752 38.978 3.02752 37.552 5.32752 36.678C3.57952 36.034 2.61352 34.608 2.61352 32.722C2.61352 30.192 4.72952 28.49 6.70752 27.156C4.26952 26.006 2.56752 23.844 2.56752 20.67C2.56752 15.518 6.61552 12.436 11.9975 12.436C13.6075 12.436 14.8035 12.712 15.9535 13.08L23.4975 12.896V15.288H21.7035L18.2535 15.104C19.8175 16.116 21.1975 18.186 21.1975 20.486C21.1975 25.27 17.4255 28.26 11.9055 28.26ZM16.4135 37.046H5.92552C5.14352 37.874 4.77552 38.978 4.77552 40.312C4.77552 43.624 7.39752 45.648 11.7215 45.648C16.4595 45.648 20.5995 43.946 20.5995 40.22C20.5995 37.874 18.9895 37.046 16.4135 37.046ZM12.1815 26.926C14.9415 26.926 16.2295 24.258 16.2295 20.762C16.2295 16.99 14.7575 13.77 11.7675 13.77C8.96152 13.77 7.67352 16.484 7.67352 19.934C7.67352 23.752 9.14552 26.926 12.1815 26.926Z"/>
+              </svg>                
+            </abbr>
+          </h1>
+        </hgroup>
+
+        <!-- use a wrapper to avoid setting overflow on flex item -->
+        <div>
+          <div class="primary-content">
+            <div class="intro-tab">
+              <div hidden role="tablist" aria-label="Introduction">
+                <button role="tab" aria-selected="false" tabindex="0" aria-label="Toggle Intro">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 24 24" fill="none" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 14V23H14V14H23V10H14V1H10V10H1V14H10Z" fill="currentColor"></path></svg>
+                </button>
+              </div>
+              <div role="tabpanel" tabindex="0" aria-label="Short Intro">
+                <p class="intro-tab__content">
+                  Grace Walker is an independent designer working with companies at the edge of new frontiers.
+                </p>
+                <p class="intro-tab__links">
+                  <a href="https://x.com/graceongrid">Thoughts</a>
+                  <a href="https://www.instagram.com/graceongrid">Pictures</a>
+                  <a href="https://graceongrid.joinperch.com/">Questions</a>
+                </p>
+              </div>
+              <div role="tabpanel" tabindex="0" aria-label="Long Intro" hidden>
+                <p>
+                  Grace Walker is an independent web designer, developer and course creator. Over the last seven years Grace has earned a reputation as a client favourite and community staple through her work creating custom marketing websites and online education. <small>Not currently available for new work.</small>
+                </p>
+              </div>
+            </div>
+  
+            <div class="photo-tab">
+              <div hidden role="tablist" aria-label="Photo">
+                <button id="photo-toggle" role="tab" aria-selected="false" tabindex="0" aria-label="Toggle Photo">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18px" viewBox="0 0 24 24" fill="none" class="icon" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><path d="M16.4911 4.81445L3.95312 12L16.4911 19.1855V14.8822L24 19.1855V4.81445L16.4911 9.11779V4.81445Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M7.81011e-05 19.1855L7.87293e-05 4.81445L4.01367 4.81445L4.01367 19.1855L7.81011e-05 19.1855Z" fill="currentColor"></path></svg>
+                </button>
+              </div>
+              <div role="tabpanel" tabindex="0" aria-label="Photo 1">
+                <p>
+                  <img src="./images/grace.jpg" width="500px" alt="Grace">
+                </p>
+              </div>
+              <div role="tabpanel" tabindex="0" aria-label="Photo 2" hidden>
+                <p>
+                  <img src="./images/grace-alt.jpg" width="500px" alt="Grace">
+                </p>
+              </div>
+            </div>
+  
+            <div class="course-tab">
+              <p class="course-tab__content">
+                <span>
+                  <span class="sr-only">She authored a course on </span><strong class="course-tab__lead"><mark class="course-tab__lead-highlight">Everything</mark> you need to know for the first year of freelancing</strong> <span class="sr-only">at </span>
+                </span>
+                <span class="course-tab__content-foot">
+                  <span class="sr-only">Free Forward Freelance.</span>
+                  <svg class="fff-brand" hidden xmlns="http://www.w3.org/2000/svg" width="97" height="61" viewBox="0 0 97 61" fill="none">
+                    <path d="M91.6023 60.6879C88.1551 60.6879 85.8136 58.2813 85.8136 54.7257C85.8136 51.3436 88.2418 48.7853 91.5372 48.7853C95.0061 48.7853 96.8923 51.3436 96.8923 54.574V55.4846H89.1524C89.3909 57.0456 90.3231 57.9345 91.6456 57.9345C92.7297 57.9345 93.5752 57.4141 93.9004 56.4168L96.8056 57.3491C95.96 59.5388 93.8787 60.6879 91.6023 60.6879ZM91.4939 51.4737C90.4315 51.4737 89.6077 52.1024 89.2608 53.3599H93.4668C93.4451 52.3409 92.773 51.4737 91.4939 51.4737Z" fill="#FF5E30"/>
+                    <path d="M77.7214 54.7474C77.7214 56.677 78.6319 57.826 80.0845 57.826C81.2119 57.826 81.884 57.0239 82.1225 55.9398L85.1361 57.1106C84.6591 59.0185 82.8596 60.6879 80.0629 60.6879C76.6807 60.6879 74.2958 58.2597 74.2958 54.7474C74.2958 51.2135 76.6807 48.7853 80.0629 48.7853C82.838 48.7853 84.6157 50.433 85.1144 52.3192L82.1225 53.5333C81.884 52.471 81.2119 51.6471 80.0845 51.6471C78.6319 51.6471 77.7214 52.7962 77.7214 54.7474Z" fill="#FF5E30"/>
+                    <path d="M62.2847 60.4494V49.0238H65.7536V50.1728C66.3823 49.4357 67.4447 48.7853 68.8972 48.7853C71.2387 48.7853 72.713 50.4113 72.713 52.9046V60.4494H69.2441V53.9019C69.2441 52.7528 68.7672 51.9073 67.6398 51.9073C66.6858 51.9073 65.7536 52.5794 65.7536 53.9236V60.4494H62.2847Z" fill="#FF5E30"/>
+                    <path d="M53.4469 60.6662C51.1487 60.6662 49.501 59.2786 49.501 57.2624C49.501 54.8992 51.4956 53.9452 53.9022 53.5984L56.4604 53.1647V52.9696C56.4604 52.1241 56.0052 51.5821 54.8778 51.5821C53.8805 51.5821 53.3601 52.0157 53.1433 52.9479L49.8262 52.4493C50.3249 50.433 52.1244 48.7853 55.0295 48.7853C58.0214 48.7853 59.8643 50.1512 59.8643 52.8179V57.219C59.8643 57.8044 60.0811 57.9778 60.7532 57.8911V60.4494C58.7586 60.7746 57.4144 60.406 56.829 59.4304C56.0702 60.2109 54.9428 60.6662 53.4469 60.6662ZM56.4604 56.3518V55.3978L54.4658 55.7664C53.5553 55.9182 52.8832 56.2217 52.8832 57.0239C52.8832 57.7393 53.4252 58.1296 54.249 58.1296C55.3981 58.1296 56.4604 57.5225 56.4604 56.3518Z" fill="#FF5E30"/>
+                    <path d="M47.9476 44.8828V60.4494H44.4788V44.8828H47.9476Z" fill="#FF5E30"/>
+                    <path d="M37.6128 60.6879C34.1656 60.6879 31.8242 58.2813 31.8242 54.7257C31.8242 51.3436 34.2524 48.7853 37.5478 48.7853C41.0167 48.7853 42.9029 51.3436 42.9029 54.574V55.4846H35.1629C35.4014 57.0456 36.3337 57.9345 37.6562 57.9345C38.7402 57.9345 39.5858 57.4141 39.911 56.4168L42.8162 57.3491C41.9706 59.5388 39.8893 60.6879 37.6128 60.6879ZM37.5044 51.4737C36.4421 51.4737 35.6182 52.1024 35.2714 53.3599H39.4774C39.4557 52.3409 38.7836 51.4737 37.5044 51.4737Z" fill="#FF5E30"/>
+                    <path d="M25.5446 60.6879C22.0974 60.6879 19.7559 58.2813 19.7559 54.7257C19.7559 51.3436 22.1841 48.7853 25.4796 48.7853C28.9484 48.7853 30.8346 51.3436 30.8346 54.574V55.4846H23.0947C23.3332 57.0456 24.2655 57.9345 25.588 57.9345C26.672 57.9345 27.5175 57.4141 27.8427 56.4168L30.7479 57.3491C29.9024 59.5388 27.8211 60.6879 25.5446 60.6879ZM25.4362 51.4737C24.3739 51.4737 23.55 52.1024 23.2031 53.3599H27.4091C27.3875 52.3409 26.7154 51.4737 25.4362 51.4737Z" fill="#FF5E30"/>
+                    <path d="M19.2613 49.0021V52.3409C18.8928 52.2759 18.6326 52.2542 18.2424 52.2542C16.7464 52.2542 15.554 53.1864 15.554 54.8341V60.4494H12.0851V49.0238H15.554V50.5197C16.0743 49.6092 17.18 48.9587 18.5025 48.9587C18.8277 48.9587 19.0445 48.9804 19.2613 49.0021Z" fill="#FF5E30"/>
+                    <path d="M3.99847 60.4494H0.442871V44.8828H11.3481V47.9831H3.99847V51.517H10.1124V54.5523H3.99847V60.4494Z" fill="#FF5E30"/>
+                    <path d="M73.9459 38.6879C70.8022 38.6879 69.0244 35.9995 69.0244 32.7474C69.0244 29.4737 70.8022 26.7853 73.9459 26.7853C75.3118 26.7853 76.3958 27.349 77.0462 28.1728V22.8828H80.5151V38.4494H77.0462V37.322C76.3958 38.1242 75.3118 38.6879 73.9459 38.6879ZM77.0679 32.4439C77.0679 30.7095 76.1356 29.7555 74.8348 29.7555C73.3172 29.7555 72.515 30.9913 72.515 32.7474C72.515 34.5035 73.3172 35.7393 74.8348 35.7393C76.1356 35.7393 77.0679 34.7637 77.0679 33.0509V32.4439Z" fill="#FF5E30"/>
+                    <path d="M68.4447 27.0021V30.3409C68.0761 30.2759 67.8159 30.2542 67.4257 30.2542C65.9297 30.2542 64.7373 31.1864 64.7373 32.8341V38.4494H61.2684V27.0238H64.7373V28.5197C65.2576 27.6092 66.3633 26.9587 67.6858 26.9587C68.0111 26.9587 68.2279 26.9804 68.4447 27.0021Z" fill="#FF5E30"/>
+                    <path d="M52.4306 38.6662C50.1325 38.6662 48.4847 37.2786 48.4847 35.2624C48.4847 32.8992 50.4793 31.9452 52.8859 31.5984L55.4442 31.1647V30.9696C55.4442 30.1241 54.9889 29.5821 53.8615 29.5821C52.8642 29.5821 52.3439 30.0157 52.1271 30.9479L48.81 30.4493C49.3086 28.433 51.1081 26.7853 54.0133 26.7853C57.0052 26.7853 58.848 28.1512 58.848 30.8179V35.219C58.848 35.8044 59.0648 35.9778 59.7369 35.8911V38.4494C57.7423 38.7746 56.3981 38.406 55.8127 37.4304C55.0539 38.2109 53.9265 38.6662 52.4306 38.6662ZM55.4442 34.3518V33.3978L53.4496 33.7664C52.539 33.9182 51.8669 34.2217 51.8669 35.0239C51.8669 35.7393 52.4089 36.1296 53.2328 36.1296C54.3818 36.1296 55.4442 35.5225 55.4442 34.3518Z" fill="#FF5E30"/>
+                    <path d="M39.1117 27.0238H41.7133L43.4478 33.723L45.2039 27.0238H48.586L45.1172 38.4494H42.1469L40.3475 32.1187L38.548 38.4494H35.5778L32.1089 27.0238H35.5994L37.3989 33.723L39.1117 27.0238Z" fill="#FF5E30"/>
+                    <path d="M31.5836 27.0021V30.3409C31.2151 30.2759 30.9549 30.2542 30.5647 30.2542C29.0687 30.2542 27.8763 31.1864 27.8763 32.8341V38.4494H24.4074V27.0238H27.8763V28.5197C28.3966 27.6092 29.5023 26.9587 30.8248 26.9587C31.15 26.9587 31.3668 26.9804 31.5836 27.0021Z" fill="#FF5E30"/>
+                    <path d="M22.7766 32.7474C22.7766 36.303 20.4135 38.6879 17.053 38.6879C13.6708 38.6879 11.3293 36.303 11.3293 32.7474C11.3293 29.1918 13.6708 26.7853 17.053 26.7853C20.4135 26.7853 22.7766 29.1918 22.7766 32.7474ZM14.7765 32.7474C14.7765 34.742 15.6654 35.8694 17.053 35.8694C18.4405 35.8694 19.3294 34.742 19.3294 32.7474C19.3294 30.7528 18.4405 29.6254 17.053 29.6254C15.6654 29.6254 14.7765 30.7528 14.7765 32.7474Z" fill="#FF5E30"/>
+                    <path d="M3.99847 38.4494H0.442871V22.8828H11.3481V25.9831H3.99847V29.517H10.1124V32.5523H3.99847V38.4494Z" fill="#FF5E30"/>
+                    <path d="M35.3838 13.3924V7.8856H33.9312V5.02378H35.3838V1.85843H38.8093V5.02378H41.0424V7.8856H38.8093V12.5035C38.8093 13.4575 39.308 13.6309 40.1752 13.6309C40.5871 13.6309 40.7823 13.6092 41.1725 13.5659V16.406C40.5655 16.4927 39.915 16.5578 39.0912 16.5578C36.6196 16.5578 35.3838 15.7339 35.3838 13.3924Z" fill="#FF5E30"/>
+                    <path d="M22.9645 14.78L24.7639 12.4385C25.6962 13.4575 27.1705 14.0645 28.4063 14.0645C29.3168 14.0645 30.0757 13.761 30.0757 13.154C30.0757 12.3951 29.3168 12.3084 27.4957 11.9832C25.6095 11.6146 23.5932 11.116 23.5932 8.64442C23.5932 6.32461 25.6528 4.7853 28.4713 4.7853C30.5309 4.7853 32.3521 5.56579 33.306 6.60646L31.5716 8.83954C30.7044 7.92896 29.577 7.43031 28.4496 7.43031C27.6041 7.43031 27.0621 7.75552 27.0621 8.27585C27.0621 8.90458 27.7342 8.99131 29.1217 9.25147C31.1814 9.6634 33.4795 10.1621 33.4795 12.742C33.4795 15.2353 31.1814 16.6879 28.2762 16.6879C26.2816 16.6879 24.0268 16.0158 22.9645 14.78Z" fill="#FF5E30"/>
+                    <path d="M15.1249 16.6662C12.8268 16.6662 11.1791 15.2786 11.1791 13.2624C11.1791 10.8992 13.1737 9.94525 15.5802 9.59836L18.1385 9.16475V8.96963C18.1385 8.12409 17.6832 7.58208 16.5559 7.58208C15.5586 7.58208 15.0382 8.01569 14.8214 8.94795L11.5043 8.4493C12.003 6.43301 13.8024 4.7853 16.7076 4.7853C19.6995 4.7853 21.5424 6.15117 21.5424 8.81786V13.219C21.5424 13.8044 21.7592 13.9778 22.4313 13.8911V16.4494C20.4367 16.7746 19.0925 16.406 18.5071 15.4304C17.7483 16.2109 16.6209 16.6662 15.1249 16.6662ZM18.1385 12.3518V11.3978L16.1439 11.7664C15.2334 11.9182 14.5613 12.2217 14.5613 13.0239C14.5613 13.7393 15.1033 14.1296 15.9271 14.1296C17.0762 14.1296 18.1385 13.5225 18.1385 12.3518Z" fill="#FF5E30"/>
+                    <path d="M3.99847 16.4494H0.442871V0.882812H11.3481V3.98312H3.99847V7.51703H10.1124V10.5523H3.99847V16.4494Z" fill="#FF5E30"/>
+                  </svg> 
+                  <a class="course-tab__link" href="">Register <span class="sr-only">Freelancing Course</span> Now.</a>
+                </span>
+              </p>
+              <p class="course-tab__bg" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 464 446" fill="none">
+                  <g clip-path="url(#clip0_417_1472)">
+                  <g clip-path="url(#clip1_417_1472)">
+                  <path d="M241.805 297.332H-55.4517V0H241.805V297.332ZM-55.1214 297.001H241.476V0.330368H-55.1214V297.003V297.001Z" fill="white"/>
+                  <path d="M241.475 278.521H-55.4517V278.852H241.475V278.521Z" fill="white"/>
+                  <path d="M241.475 260.041H-55.4517V260.371H241.475V260.041Z" fill="white"/>
+                  <path d="M241.475 241.562H-55.4517V241.892H241.475V241.562Z" fill="white"/>
+                  <path d="M241.475 222.751H-55.4517V223.082H241.475V222.751Z" fill="white"/>
+                  <path d="M241.475 204.271H-55.4517V204.601H241.475V204.271Z" fill="white"/>
+                  <path d="M241.475 185.791H-55.4517V186.121H241.475V185.791Z" fill="white"/>
+                  <path d="M241.475 167.311H-55.4517V167.641H241.475V167.311Z" fill="white"/>
+                  <path d="M241.475 148.5H-55.4517V148.831H241.475V148.5Z" fill="white"/>
+                  <path d="M241.475 130.021H-55.4517V130.351H241.475V130.021Z" fill="white"/>
+                  <path d="M241.475 111.54H-55.4517V111.87H241.475V111.54Z" fill="white"/>
+                  <path d="M241.475 93.0605H-55.4517V93.3909H241.475V93.0605Z" fill="white"/>
+                  <path d="M241.475 74.251H-55.4517V74.5813H241.475V74.251Z" fill="white"/>
+                  <path d="M241.475 55.77H-55.4517V56.1004H241.475V55.77Z" fill="white"/>
+                  <path d="M241.475 37.2905H-55.4517V37.6209H241.475V37.2905Z" fill="white"/>
+                  <path d="M241.475 18.8101H-55.4517V19.1404H241.475V18.8101Z" fill="white"/>
+                  <path d="M223 0.330566H222.669V297.332H223V0.330566Z" fill="white"/>
+                  <path d="M204.525 0.330566H204.195V297.332H204.525V0.330566Z" fill="white"/>
+                  <path d="M186.049 0.330566H185.719V297.332H186.049V0.330566Z" fill="white"/>
+                  <path d="M167.574 0.330566H167.244V297.332H167.574V0.330566Z" fill="white"/>
+                  <path d="M148.769 0.330566H148.438V297.332H148.769V0.330566Z" fill="white"/>
+                  <path d="M130.293 0.330566H129.962V297.332H130.293V0.330566Z" fill="white"/>
+                  <path d="M111.818 0.330566H111.488V297.332H111.818V0.330566Z" fill="white"/>
+                  <path d="M93.3418 0.330566H93.0115V297.332H93.3418V0.330566Z" fill="white"/>
+                  <path d="M74.5366 0.330566H74.2063V297.332H74.5366V0.330566Z" fill="white"/>
+                  <path d="M56.0617 0.330566H55.7314V297.332H56.0617V0.330566Z" fill="white"/>
+                  <path d="M37.5857 0.330566H37.2554V297.332H37.5857V0.330566Z" fill="white"/>
+                  <path d="M19.1108 0.330566H18.7805V297.332H19.1108V0.330566Z" fill="white"/>
+                  <path d="M0.304406 0.330566H-0.0258789V297.332H0.304406V0.330566Z" fill="white"/>
+                  <path d="M538.731 297.332H241.475V297.001H538.402V0.330368H241.475V0H538.731V297.332Z" fill="white"/>
+                  <path d="M538.401 278.521H241.475V278.852H538.401V278.521Z" fill="white"/>
+                  <path d="M538.401 260.041H241.475V260.371H538.401V260.041Z" fill="white"/>
+                  <path d="M538.401 241.562H241.475V241.892H538.401V241.562Z" fill="white"/>
+                  <path d="M538.401 222.751H241.475V223.082H538.401V222.751Z" fill="white"/>
+                  <path d="M538.401 204.271H241.475V204.601H538.401V204.271Z" fill="white"/>
+                  <path d="M538.401 185.791H241.475V186.121H538.401V185.791Z" fill="white"/>
+                  <path d="M538.401 167.311H241.475V167.641H538.401V167.311Z" fill="white"/>
+                  <path d="M538.401 148.5H241.475V148.831H538.401V148.5Z" fill="white"/>
+                  <path d="M538.401 130.021H241.475V130.351H538.401V130.021Z" fill="white"/>
+                  <path d="M538.401 111.54H241.475V111.87H538.401V111.54Z" fill="white"/>
+                  <path d="M538.401 93.0605H241.475V93.3909H538.401V93.0605Z" fill="white"/>
+                  <path d="M538.401 74.251H241.475V74.5813H538.401V74.251Z" fill="white"/>
+                  <path d="M538.401 55.77H241.475V56.1004H538.401V55.77Z" fill="white"/>
+                  <path d="M538.401 37.2905H241.475V37.6209H538.401V37.2905Z" fill="white"/>
+                  <path d="M538.401 18.8101H241.475V19.1404H538.401V18.8101Z" fill="white"/>
+                  <path d="M445.695 0.330566H445.365V297.332H445.695V0.330566Z" fill="white"/>
+                  <path d="M427.219 0.330566H426.889V297.332H427.219V0.330566Z" fill="white"/>
+                  <path d="M408.744 0.330566H408.414V297.332H408.744V0.330566Z" fill="white"/>
+                  <path d="M390.268 0.330566H389.938V297.332H390.268V0.330566Z" fill="white"/>
+                  <path d="M371.463 0.330566H371.133V297.332H371.463V0.330566Z" fill="white"/>
+                  <path d="M352.988 0.330566H352.658V297.332H352.988V0.330566Z" fill="white"/>
+                  <path d="M334.512 0.330566H334.182V297.332H334.512V0.330566Z" fill="white"/>
+                  <path d="M316.037 0.330566H315.707V297.332H316.037V0.330566Z" fill="white"/>
+                  <path d="M297.232 0.330566H296.902V297.332H297.232V0.330566Z" fill="white"/>
+                  <path d="M278.756 0.330566H278.426V297.332H278.756V0.330566Z" fill="white"/>
+                  <path d="M260.281 0.330566H259.951V297.332H260.281V0.330566Z" fill="white"/>
+                  </g>
+                  <g clip-path="url(#clip2_417_1472)">
+                  <path d="M241.805 594.183H-55.4517V296.851H241.805V594.183ZM-55.1214 593.852H241.476V297.181H-55.1214V593.854V593.852Z" fill="white"/>
+                  <path d="M241.475 445.352H-55.4517V445.682H241.475V445.352Z" fill="white"/>
+                  <path d="M241.475 426.872H-55.4517V427.202H241.475V426.872Z" fill="white"/>
+                  <path d="M241.475 408.392H-55.4517V408.722H241.475V408.392Z" fill="white"/>
+                  <path d="M241.475 389.912H-55.4517V390.242H241.475V389.912Z" fill="white"/>
+                  <path d="M241.475 371.102H-55.4517V371.432H241.475V371.102Z" fill="white"/>
+                  <path d="M241.475 352.621H-55.4517V352.951H241.475V352.621Z" fill="white"/>
+                  <path d="M241.475 334.142H-55.4517V334.472H241.475V334.142Z" fill="white"/>
+                  <path d="M241.475 315.661H-55.4517V315.992H241.475V315.661Z" fill="white"/>
+                  <path d="M223 297.182H222.669V594.183H223V297.182Z" fill="white"/>
+                  <path d="M204.525 297.182H204.195V594.183H204.525V297.182Z" fill="white"/>
+                  <path d="M186.049 297.182H185.719V594.183H186.049V297.182Z" fill="white"/>
+                  <path d="M167.574 297.182H167.244V594.183H167.574V297.182Z" fill="white"/>
+                  <path d="M148.769 297.182H148.438V594.183H148.769V297.182Z" fill="white"/>
+                  <path d="M130.293 297.182H129.962V594.183H130.293V297.182Z" fill="white"/>
+                  <path d="M111.818 297.182H111.488V594.183H111.818V297.182Z" fill="white"/>
+                  <path d="M93.3418 297.182H93.0115V594.183H93.3418V297.182Z" fill="white"/>
+                  <path d="M74.5366 297.182H74.2063V594.183H74.5366V297.182Z" fill="white"/>
+                  <path d="M56.0617 297.182H55.7314V594.183H56.0617V297.182Z" fill="white"/>
+                  <path d="M37.5857 297.182H37.2554V594.183H37.5857V297.182Z" fill="white"/>
+                  <path d="M19.1108 297.182H18.7805V594.183H19.1108V297.182Z" fill="white"/>
+                  <path d="M0.304406 297.182H-0.0258789V594.183H0.304406V297.182Z" fill="white"/>
+                  <path d="M538.731 594.183H241.475V593.852H538.402V297.181H241.475V296.851H538.731V594.183Z" fill="white"/>
+                  <path d="M538.401 445.352H241.475V445.682H538.401V445.352Z" fill="white"/>
+                  <path d="M538.401 426.872H241.475V427.202H538.401V426.872Z" fill="white"/>
+                  <path d="M538.401 408.392H241.475V408.722H538.401V408.392Z" fill="white"/>
+                  <path d="M538.401 389.912H241.475V390.242H538.401V389.912Z" fill="white"/>
+                  <path d="M538.401 371.102H241.475V371.432H538.401V371.102Z" fill="white"/>
+                  <path d="M538.401 352.621H241.475V352.951H538.401V352.621Z" fill="white"/>
+                  <path d="M538.401 334.142H241.475V334.472H538.401V334.142Z" fill="white"/>
+                  <path d="M538.401 315.661H241.475V315.992H538.401V315.661Z" fill="white"/>
+                  <path d="M445.695 297.182H445.365V594.183H445.695V297.182Z" fill="white"/>
+                  <path d="M427.219 297.182H426.889V594.183H427.219V297.182Z" fill="white"/>
+                  <path d="M408.744 297.182H408.414V594.183H408.744V297.182Z" fill="white"/>
+                  <path d="M390.268 297.182H389.938V594.183H390.268V297.182Z" fill="white"/>
+                  <path d="M371.463 297.182H371.133V594.183H371.463V297.182Z" fill="white"/>
+                  <path d="M352.988 297.182H352.658V594.183H352.988V297.182Z" fill="white"/>
+                  <path d="M334.512 297.182H334.182V594.183H334.512V297.182Z" fill="white"/>
+                  <path d="M316.037 297.182H315.707V594.183H316.037V297.182Z" fill="white"/>
+                  <path d="M297.232 297.182H296.902V594.183H297.232V297.182Z" fill="white"/>
+                  <path d="M278.756 297.182H278.426V594.183H278.756V297.182Z" fill="white"/>
+                  <path d="M260.281 297.182H259.951V594.183H260.281V297.182Z" fill="white"/>
+                  </g>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_417_1472">
+                  <rect width="464" height="446" fill="white" transform="translate(-0.00244141)"/>
+                  </clipPath>
+                  <clipPath id="clip1_417_1472">
+                  <rect width="594.183" height="297.332" fill="white" transform="translate(-55.4517)"/>
+                  </clipPath>
+                  <clipPath id="clip2_417_1472">
+                  <rect width="594.183" height="297.332" fill="white" transform="translate(-55.4517 296.851)"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+              </p>
+            </div>
+            
+            <div class="work-tab">
+              <div hidden role="tablist" aria-label="Works">
+                <button role="tab" id="work-next" tabindex="0" aria-selected="false" aria-label="Next Work">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 24 24" fill="none" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.47508 13.4133L9.96898 20.9072L12.7951 18.0811L8.71264 13.9986L22.9862 13.9986L22.9862 10.0018L8.71264 10.0018L12.7951 5.91936L9.96898 3.09326L2.47508 10.5872L1.06201 12.0002L2.47508 13.4133Z" fill="currentColor"></path></svg>
+                </button>
+                <button role="tab" id="work-prev" tabindex="-1" aria-selected="false" aria-label="Previous Work">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 24 24" fill="none" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.5733 13.4133L14.0794 20.9072L11.2533 18.0811L15.3357 13.9986L1.06211 13.9986L1.06211 10.0018L15.3357 10.0018L11.2533 5.91936L14.0794 3.09326L21.5733 10.5872L22.9863 12.0002L21.5733 13.4133Z" fill="currentColor"></path></svg>
+                </button>
+              </div>
+              <div class="work" role="tabpanel" tabindex="0" aria-label="Kathairos.com work" >
+                <p>
+                  <span class="work__head">
+                    <span>
+                      <span class="sr-only">At</span> <a href="https://www.kathairos.com/" class="work__link">Kathairos.com:</a> <span class="sr-only">she did </span>
+                    </span>
+                    <span class="work__roles">
+                      Creative Direction, Web Design, <span class="sr-only">and</span> Webflow. 
+                    </span>
+                  </span>
+                  <img class="work__shot" src="./images/kathairos.webp" alt="First fold of kathairos.com"> 
+                </p>
+              </div>
+              <div class="work" role="tabpanel" hidden tabindex="0" aria-label="GSEI.ca work">
+                <p>
+                  <span class="work__head">
+                    <span>
+                      <span class="sr-only">At</span> <a href="https://www.gsei.ca/" class="work__link">Gsei.ca:</a> <span class="sr-only">she did </span>
+                    </span>
+                    <span class="work__roles">
+                      Brand Design, Web Design, <span class="sr-only">and</span> Webflow. 
+                    </span>
+                  </span>
+                  <img class="work__shot" src="./images/gsei.webp" alt="First fold of gsei.ca"> 
+                </p>
+              </div>
+              <div class="work" role="tabpanel" hidden tabindex="0" aria-label="researchwithmoms.com Work" >
+                <p>
+                  <span class="work__head">
+                    <span>
+                      <span class="sr-only">At</span> <a href="https://www.researchwithmoms.com/" class="work__link">researchwithmoms.com:</a> <span class="sr-only">she did </span>
+                    </span>
+                    <span class="work__roles">
+                      Web Design, <span class="sr-only">and</span> Webflow. 
+                    </span>
+                  </span>
+                  <img class="work__shot" src="./images/researchwithmoms.webp" alt="First fold of researchwithmoms.com"> 
+                </p>
+              </div>
+              <div class="work" role="tabpanel" hidden tabindex="0" aria-label="platformcalgary.com work">
+                <p>
+                  <span class="work__head">
+                    <span>
+                      <span class="sr-only">At</span> <a href="platformcalgary.com" class="work__link">platformcalgary.com:</a> <span class="sr-only">she did </span>
+                    </span>
+                    <span class="work__roles">
+                      Web Design, <span class="sr-only">and</span> Webflow. 
+                    </span>
+                  </span>
+                  <img class="work__shot" src="./images/platformcalgary.webp" alt="First fold of platformcalgary.com"> 
+                </p>
+              </div>
+              <div class="work" role="tabpanel" hidden tabindex="0" aria-label="rotor.ai work">
+                <p>
+                  <span class="work__head">
+                    <span>
+                      <span class="sr-only">At</span> <a href="rotor.ai" class="work__link">rotor.ai:</a> <span class="sr-only">she did </span>
+                    </span>
+                    <span class="work__roles">
+                      Web Design, <span class="sr-only">and</span> Webflow. 
+                    </span>
+                  </span>
+                  <img class="work__shot" src="./images/rotor.webp" alt="First fold of rotor.ai"> 
+                </p>
+              </div>
+              <div class="work" role="tabpanel" hidden tabindex="0" aria-label="makerandmoxie.com work">
+                <p>
+                  <span class="work__head">
+                    <span>
+                      <span class="sr-only">At</span> <a href="makerandmoxie.com" class="work__link">makerandmoxie.com:</a> <span class="sr-only">she did </span>
+                    </span>
+                    <span class="work__roles">
+                      Web Design, <span class="sr-only">and</span> Webflow. 
+                    </span>
+                  </span>
+                  <img class="work__shot" src="./images/makerandmoxie.jpg" alt="First fold of makerandmoxie.com"> 
+                </p>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>
+        <button class="base-settings primary-window__footer-settings" aria-label="Personalization Settings">
+          <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 19V18C19 16.9391 18.5259 15.9217 17.682 15.1716C16.8381 14.4214 15.6935 14 14.5 14H5.5C4.30653 14 3.16193 14.4214 2.31802 15.1716C1.47411 15.9217 1 16.9391 1 18V19" stroke-width="1.1"/>
+            <path d="M8.59999 1.52222C8.65236 1.22111 8.92581 1 9.24581 1H10.7545C11.0745 1 11.3479 1.22111 11.4003 1.52222L11.5242 2.23389C11.5609 2.44167 11.7063 2.615 11.8995 2.71722C11.9425 2.73944 11.985 2.76333 12.0275 2.78778C12.2166 2.89667 12.4464 2.93056 12.653 2.85667L13.361 2.60333C13.5061 2.55123 13.6659 2.54999 13.8119 2.59984C13.9578 2.64969 14.0805 2.7474 14.1581 2.87556L14.9122 4.12389C14.9896 4.25206 15.0169 4.4023 14.9892 4.54787C14.9615 4.69344 14.8806 4.82491 14.7609 4.91889L14.1773 5.37833C14.0068 5.51222 13.9225 5.71889 13.9271 5.92944C13.928 5.97666 13.928 6.02389 13.9271 6.07111C13.9225 6.28111 14.0068 6.48778 14.1773 6.62167L14.7615 7.08111C15.0082 7.27556 15.0722 7.61167 14.9127 7.87556L14.1575 9.12389C14.0801 9.25202 13.9575 9.34976 13.8117 9.3997C13.6658 9.44965 13.5061 9.44858 13.361 9.39667L12.653 9.14333C12.4464 9.06945 12.2166 9.10333 12.0269 9.21222C11.9847 9.23673 11.9421 9.26043 11.8989 9.28333C11.7063 9.385 11.5609 9.55833 11.5242 9.76611L11.4003 10.4778C11.3479 10.7794 11.0745 11 10.7545 11H9.24523C8.92523 11 8.65236 10.7789 8.59941 10.4778L8.47548 9.76611C8.43941 9.55833 8.29396 9.385 8.10079 9.28278C8.05765 9.26006 8.01497 9.23653 7.97279 9.21222C7.7837 9.10333 7.55388 9.06945 7.34675 9.14333L6.63868 9.39667C6.49365 9.44862 6.33402 9.44978 6.18817 9.39994C6.04233 9.3501 5.91973 9.25248 5.84217 9.12445L5.08754 7.87611C5.01013 7.74794 4.98284 7.59771 5.01054 7.45213C5.03824 7.30656 5.11913 7.17509 5.23882 7.08111L5.82297 6.62167C5.99286 6.48833 6.07722 6.28111 6.07315 6.07111C6.07224 6.02389 6.07224 5.97666 6.07315 5.92944C6.07722 5.71833 5.99286 5.51222 5.82297 5.37833L5.23882 4.91889C5.11928 4.82494 5.03848 4.69357 5.01079 4.54812C4.98309 4.40267 5.01029 4.25256 5.08754 4.12444L5.84217 2.87611C5.91966 2.74785 6.04232 2.65003 6.1883 2.60008C6.33428 2.55012 6.49409 2.55127 6.63926 2.60333L7.34675 2.85667C7.55388 2.93056 7.7837 2.89667 7.97279 2.78778C8.01468 2.76333 8.05774 2.74 8.10079 2.71667C8.29396 2.615 8.43941 2.44167 8.47548 2.23389L8.59999 1.52222Z"/>
+            <path d="M11.7453 5.99998C11.7453 6.44201 11.5614 6.86593 11.2341 7.17849C10.9067 7.49105 10.4628 7.66665 9.99985 7.66665C9.53693 7.66665 9.09297 7.49105 8.76563 7.17849C8.43829 6.86593 8.25439 6.44201 8.25439 5.99998C8.25439 5.55795 8.43829 5.13403 8.76563 4.82147C9.09297 4.50891 9.53693 4.33331 9.99985 4.33331C10.4628 4.33331 10.9067 4.50891 11.2341 4.82147C11.5614 5.13403 11.7453 5.55795 11.7453 5.99998Z"/>
+          </svg>
+        </button>
+      </p>
+    </footer>
+  </div>
+  <base-settings></base-settings>
+</body>
+
+</html>
