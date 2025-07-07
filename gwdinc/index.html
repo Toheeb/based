@@ -43,9 +43,9 @@
       /* --base-font-scale: 1.14; */
       /* --base-line-height: .45; */
     }
-    </style>
+  </style>
 
-<style>
+  <style>
   
     :root {
       --base-font-scale-toggle: 0;
@@ -102,6 +102,9 @@
     }
 
 
+    :focus {
+      outline-color: white;
+    }
 
 
 
@@ -138,22 +141,22 @@
       /* To avoid clipping box shadow of intro tab */
       padding-top: 40px;
     }
-
+    
     .primary-content > * {
+      position: relative;
       aspect-ratio: 1;
       flex: none;
       width: 80vmin;
       max-width: 31rem;
+    }
+    
+    [role=tabpanel], .course {
       overflow: auto;
       border-radius: 30px;
-      position: relative;
     }
 
     
     .intro-tab {
-      background-color: #e8512a;
-      box-shadow: 7px 7px 40px 6px #00000017;
-      padding: 1.25rem;
       font-weight: 600;
       color: #f3ece4;
       position: relative;
@@ -167,14 +170,17 @@
       background-color: #f3ece41a;
       border: 0;
       position: absolute;
-
+      
       /* values from padding of intro-tab */
       bottom: 1.25rem;
       right: 1.25rem;
     }
-
+    
     .intro-tab [role=tabpanel]:not([hidden]) {
       display: grid;
+      background-color: #e8512a;
+      box-shadow: 7px 7px 40px 6px #00000017;
+      padding: 1.25rem;
       align-content: space-between;
       height: 100%;
       gap: 2rem;
@@ -223,33 +229,33 @@
 
 
     
-    .course-tab {
+    .course {
       padding: clamp(14px, 5vmin, 38px);
       background-color: #c3dbef;
       color: #253e29;
       position: relative;
     }
 
-    .course-tab__bg {
+    .course__bg {
       display: block;
       position: absolute;
       top: 0;
       left: 0;
     }
 
-    .course-tab__lead {
+    .course__lead {
       font-size: clamp(1.5rem, 4vmax, 3rem);
       line-height: 1.2;
       font-family: "Tiempos Headline";
       font-weight: normal;
     }
 
-    .course-tab__lead-highlight {
+    .course__lead-highlight {
       background-color: #dbff85;
       padding-inline-end: 4px;
     }
 
-    .course-tab__content {
+    .course__content {
       position: relative;
       z-index: 1;
 
@@ -258,7 +264,7 @@
       align-content: space-between;
     }
 
-    .course-tab__link {
+    .course__link {
       padding: .7em 1.2em;
       border-radius: 4rem;
       background-color: #ff5e30;
@@ -271,11 +277,11 @@
       line-height: 1;
     }
 
-    .course-tab__link:hover {
+    .course__link:hover {
       box-shadow: inset 0 0 0 100px #00000026;
     }
 
-    .course-tab__content-foot {
+    .course__content-foot {
       display: flex;
       justify-content: space-between;
       align-items: end;
@@ -287,8 +293,7 @@
 
     
     .work-tab {
-      padding: 1.25rem 0 0 1.25rem;
-      background-color: #2e596c;
+
     }
 
     .work-tab [role=tablist] {
@@ -307,6 +312,11 @@
       color: white;
       background-color: #f3ece41a;
       border: 0;
+    }
+
+    .work-tab [role=tabpanel] {
+      padding: 1.25rem 0 0 1.25rem;
+      background-color: #2e596c;
     }
 
     .work-tab [role=tabpanel],
@@ -367,6 +377,17 @@
 
 <body>
   <div>
+    <footer>
+      <p>
+        <button class="base-settings primary-window__footer-settings" aria-label="Personalization Settings">
+          <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 19V18C19 16.9391 18.5259 15.9217 17.682 15.1716C16.8381 14.4214 15.6935 14 14.5 14H5.5C4.30653 14 3.16193 14.4214 2.31802 15.1716C1.47411 15.9217 1 16.9391 1 18V19" stroke-width="1.1"/>
+            <path d="M8.59999 1.52222C8.65236 1.22111 8.92581 1 9.24581 1H10.7545C11.0745 1 11.3479 1.22111 11.4003 1.52222L11.5242 2.23389C11.5609 2.44167 11.7063 2.615 11.8995 2.71722C11.9425 2.73944 11.985 2.76333 12.0275 2.78778C12.2166 2.89667 12.4464 2.93056 12.653 2.85667L13.361 2.60333C13.5061 2.55123 13.6659 2.54999 13.8119 2.59984C13.9578 2.64969 14.0805 2.7474 14.1581 2.87556L14.9122 4.12389C14.9896 4.25206 15.0169 4.4023 14.9892 4.54787C14.9615 4.69344 14.8806 4.82491 14.7609 4.91889L14.1773 5.37833C14.0068 5.51222 13.9225 5.71889 13.9271 5.92944C13.928 5.97666 13.928 6.02389 13.9271 6.07111C13.9225 6.28111 14.0068 6.48778 14.1773 6.62167L14.7615 7.08111C15.0082 7.27556 15.0722 7.61167 14.9127 7.87556L14.1575 9.12389C14.0801 9.25202 13.9575 9.34976 13.8117 9.3997C13.6658 9.44965 13.5061 9.44858 13.361 9.39667L12.653 9.14333C12.4464 9.06945 12.2166 9.10333 12.0269 9.21222C11.9847 9.23673 11.9421 9.26043 11.8989 9.28333C11.7063 9.385 11.5609 9.55833 11.5242 9.76611L11.4003 10.4778C11.3479 10.7794 11.0745 11 10.7545 11H9.24523C8.92523 11 8.65236 10.7789 8.59941 10.4778L8.47548 9.76611C8.43941 9.55833 8.29396 9.385 8.10079 9.28278C8.05765 9.26006 8.01497 9.23653 7.97279 9.21222C7.7837 9.10333 7.55388 9.06945 7.34675 9.14333L6.63868 9.39667C6.49365 9.44862 6.33402 9.44978 6.18817 9.39994C6.04233 9.3501 5.91973 9.25248 5.84217 9.12445L5.08754 7.87611C5.01013 7.74794 4.98284 7.59771 5.01054 7.45213C5.03824 7.30656 5.11913 7.17509 5.23882 7.08111L5.82297 6.62167C5.99286 6.48833 6.07722 6.28111 6.07315 6.07111C6.07224 6.02389 6.07224 5.97666 6.07315 5.92944C6.07722 5.71833 5.99286 5.51222 5.82297 5.37833L5.23882 4.91889C5.11928 4.82494 5.03848 4.69357 5.01079 4.54812C4.98309 4.40267 5.01029 4.25256 5.08754 4.12444L5.84217 2.87611C5.91966 2.74785 6.04232 2.65003 6.1883 2.60008C6.33428 2.55012 6.49409 2.55127 6.63926 2.60333L7.34675 2.85667C7.55388 2.93056 7.7837 2.89667 7.97279 2.78778C8.01468 2.76333 8.05774 2.74 8.10079 2.71667C8.29396 2.615 8.43941 2.44167 8.47548 2.23389L8.59999 1.52222Z"/>
+            <path d="M11.7453 5.99998C11.7453 6.44201 11.5614 6.86593 11.2341 7.17849C10.9067 7.49105 10.4628 7.66665 9.99985 7.66665C9.53693 7.66665 9.09297 7.49105 8.76563 7.17849C8.43829 6.86593 8.25439 6.44201 8.25439 5.99998C8.25439 5.55795 8.43829 5.13403 8.76563 4.82147C9.09297 4.50891 9.53693 4.33331 9.99985 4.33331C10.4628 4.33331 10.9067 4.50891 11.2341 4.82147C11.5614 5.13403 11.7453 5.55795 11.7453 5.99998Z"/>
+          </svg>
+        </button>
+      </p>
+    </footer>
     <main>
       <section class="page">
         <hgroup>
@@ -389,11 +410,6 @@
         <div>
           <div class="primary-content">
             <div class="intro-tab">
-              <div hidden role="tablist" aria-label="Introduction">
-                <button role="tab" aria-selected="false" tabindex="0" aria-label="Toggle Intro">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 24 24" fill="none" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 14V23H14V14H23V10H14V1H10V10H1V14H10Z" fill="currentColor"></path></svg>
-                </button>
-              </div>
               <div role="tabpanel" tabindex="0" aria-label="Short Intro">
                 <p class="intro-tab__content">
                   Grace Walker is an independent designer working with companies at the edge of new frontiers.
@@ -409,14 +425,14 @@
                   Grace Walker is an independent web designer, developer and course creator. Over the last seven years Grace has earned a reputation as a client favourite and community staple through her work creating custom marketing websites and online education. <small>Not currently available for new work.</small>
                 </p>
               </div>
+              <div hidden role="tablist" aria-label="Introduction">
+                <button role="tab" aria-selected="false" tabindex="0" aria-label="Toggle Intro">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 24 24" fill="none" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 14V23H14V14H23V10H14V1H10V10H1V14H10Z" fill="currentColor"></path></svg>
+                </button>
+              </div>
             </div>
   
             <div class="photo-tab">
-              <div hidden role="tablist" aria-label="Photo">
-                <button id="photo-toggle" role="tab" aria-selected="false" tabindex="0" aria-label="Toggle Photo">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18px" viewBox="0 0 24 24" fill="none" class="icon" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><path d="M16.4911 4.81445L3.95312 12L16.4911 19.1855V14.8822L24 19.1855V4.81445L16.4911 9.11779V4.81445Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M7.81011e-05 19.1855L7.87293e-05 4.81445L4.01367 4.81445L4.01367 19.1855L7.81011e-05 19.1855Z" fill="currentColor"></path></svg>
-                </button>
-              </div>
               <div role="tabpanel" tabindex="0" aria-label="Photo 1">
                 <p>
                   <img src="./images/grace.jpg" width="500px" alt="Grace">
@@ -427,14 +443,19 @@
                   <img src="./images/grace-alt.jpg" width="500px" alt="Grace">
                 </p>
               </div>
+              <div hidden role="tablist" aria-label="Photo">
+                <button id="photo-toggle" role="tab" aria-selected="false" tabindex="0" aria-label="Toggle Photo">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18px" viewBox="0 0 24 24" fill="none" class="icon" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><path d="M16.4911 4.81445L3.95312 12L16.4911 19.1855V14.8822L24 19.1855V4.81445L16.4911 9.11779V4.81445Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M7.81011e-05 19.1855L7.87293e-05 4.81445L4.01367 4.81445L4.01367 19.1855L7.81011e-05 19.1855Z" fill="currentColor"></path></svg>
+                </button>
+              </div>
             </div>
   
-            <div class="course-tab">
-              <p class="course-tab__content">
+            <div class="course">
+              <p class="course__content">
                 <span>
-                  <span class="sr-only">She authored a course on </span><strong class="course-tab__lead"><mark class="course-tab__lead-highlight">Everything</mark> you need to know for the first year of freelancing</strong> <span class="sr-only">at </span>
+                  <span class="sr-only">She authored a course on </span><strong class="course__lead"><mark class="course__lead-highlight">Everything</mark> you need to know for the first year of freelancing</strong> <span class="sr-only">at </span>
                 </span>
-                <span class="course-tab__content-foot">
+                <span class="course__content-foot">
                   <span class="sr-only">Free Forward Freelance.</span>
                   <svg class="fff-brand" hidden xmlns="http://www.w3.org/2000/svg" width="97" height="61" viewBox="0 0 97 61" fill="none">
                     <path d="M91.6023 60.6879C88.1551 60.6879 85.8136 58.2813 85.8136 54.7257C85.8136 51.3436 88.2418 48.7853 91.5372 48.7853C95.0061 48.7853 96.8923 51.3436 96.8923 54.574V55.4846H89.1524C89.3909 57.0456 90.3231 57.9345 91.6456 57.9345C92.7297 57.9345 93.5752 57.4141 93.9004 56.4168L96.8056 57.3491C95.96 59.5388 93.8787 60.6879 91.6023 60.6879ZM91.4939 51.4737C90.4315 51.4737 89.6077 52.1024 89.2608 53.3599H93.4668C93.4451 52.3409 92.773 51.4737 91.4939 51.4737Z" fill="#FF5E30"/>
@@ -458,10 +479,10 @@
                     <path d="M15.1249 16.6662C12.8268 16.6662 11.1791 15.2786 11.1791 13.2624C11.1791 10.8992 13.1737 9.94525 15.5802 9.59836L18.1385 9.16475V8.96963C18.1385 8.12409 17.6832 7.58208 16.5559 7.58208C15.5586 7.58208 15.0382 8.01569 14.8214 8.94795L11.5043 8.4493C12.003 6.43301 13.8024 4.7853 16.7076 4.7853C19.6995 4.7853 21.5424 6.15117 21.5424 8.81786V13.219C21.5424 13.8044 21.7592 13.9778 22.4313 13.8911V16.4494C20.4367 16.7746 19.0925 16.406 18.5071 15.4304C17.7483 16.2109 16.6209 16.6662 15.1249 16.6662ZM18.1385 12.3518V11.3978L16.1439 11.7664C15.2334 11.9182 14.5613 12.2217 14.5613 13.0239C14.5613 13.7393 15.1033 14.1296 15.9271 14.1296C17.0762 14.1296 18.1385 13.5225 18.1385 12.3518Z" fill="#FF5E30"/>
                     <path d="M3.99847 16.4494H0.442871V0.882812H11.3481V3.98312H3.99847V7.51703H10.1124V10.5523H3.99847V16.4494Z" fill="#FF5E30"/>
                   </svg> 
-                  <a class="course-tab__link" href="">Register <span class="sr-only">Freelancing Course</span> Now.</a>
+                  <a class="course__link" href="">Register <span class="sr-only">Freelancing Course</span> Now.</a>
                 </span>
               </p>
-              <p class="course-tab__bg" hidden>
+              <p class="course__bg" hidden>
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 464 446" fill="none">
                   <g clip-path="url(#clip0_417_1472)">
                   <g clip-path="url(#clip1_417_1472)">
@@ -583,14 +604,6 @@
             </div>
             
             <div class="work-tab">
-              <div hidden role="tablist" aria-label="Works">
-                <button role="tab" id="work-next" tabindex="0" aria-selected="false" aria-label="Next Work">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 24 24" fill="none" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.47508 13.4133L9.96898 20.9072L12.7951 18.0811L8.71264 13.9986L22.9862 13.9986L22.9862 10.0018L8.71264 10.0018L12.7951 5.91936L9.96898 3.09326L2.47508 10.5872L1.06201 12.0002L2.47508 13.4133Z" fill="currentColor"></path></svg>
-                </button>
-                <button role="tab" id="work-prev" tabindex="-1" aria-selected="false" aria-label="Previous Work">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 24 24" fill="none" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.5733 13.4133L14.0794 20.9072L11.2533 18.0811L15.3357 13.9986L1.06211 13.9986L1.06211 10.0018L15.3357 10.0018L11.2533 5.91936L14.0794 3.09326L21.5733 10.5872L22.9863 12.0002L21.5733 13.4133Z" fill="currentColor"></path></svg>
-                </button>
-              </div>
               <div class="work" role="tabpanel" tabindex="0" aria-label="Kathairos.com work" >
                 <p>
                   <span class="work__head">
@@ -669,23 +682,20 @@
                   <img class="work__shot" src="./images/makerandmoxie.jpg" alt="First fold of makerandmoxie.com"> 
                 </p>
               </div>
+              <div hidden role="tablist" aria-label="Works">
+                <button role="tab" id="work-next" tabindex="0" aria-selected="false" aria-label="Next Work">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 24 24" fill="none" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.47508 13.4133L9.96898 20.9072L12.7951 18.0811L8.71264 13.9986L22.9862 13.9986L22.9862 10.0018L8.71264 10.0018L12.7951 5.91936L9.96898 3.09326L2.47508 10.5872L1.06201 12.0002L2.47508 13.4133Z" fill="currentColor"></path></svg>
+                </button>
+                <button role="tab" id="work-prev" tabindex="-1" aria-selected="false" aria-label="Previous Work">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 24 24" fill="none" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.5733 13.4133L14.0794 20.9072L11.2533 18.0811L15.3357 13.9986L1.06211 13.9986L1.06211 10.0018L15.3357 10.0018L11.2533 5.91936L14.0794 3.09326L21.5733 10.5872L22.9863 12.0002L21.5733 13.4133Z" fill="currentColor"></path></svg>
+                </button>
+              </div>
             </div>
   
           </div>
         </div>
       </section>
     </main>
-    <footer>
-      <p>
-        <button class="base-settings primary-window__footer-settings" aria-label="Personalization Settings">
-          <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19 19V18C19 16.9391 18.5259 15.9217 17.682 15.1716C16.8381 14.4214 15.6935 14 14.5 14H5.5C4.30653 14 3.16193 14.4214 2.31802 15.1716C1.47411 15.9217 1 16.9391 1 18V19" stroke-width="1.1"/>
-            <path d="M8.59999 1.52222C8.65236 1.22111 8.92581 1 9.24581 1H10.7545C11.0745 1 11.3479 1.22111 11.4003 1.52222L11.5242 2.23389C11.5609 2.44167 11.7063 2.615 11.8995 2.71722C11.9425 2.73944 11.985 2.76333 12.0275 2.78778C12.2166 2.89667 12.4464 2.93056 12.653 2.85667L13.361 2.60333C13.5061 2.55123 13.6659 2.54999 13.8119 2.59984C13.9578 2.64969 14.0805 2.7474 14.1581 2.87556L14.9122 4.12389C14.9896 4.25206 15.0169 4.4023 14.9892 4.54787C14.9615 4.69344 14.8806 4.82491 14.7609 4.91889L14.1773 5.37833C14.0068 5.51222 13.9225 5.71889 13.9271 5.92944C13.928 5.97666 13.928 6.02389 13.9271 6.07111C13.9225 6.28111 14.0068 6.48778 14.1773 6.62167L14.7615 7.08111C15.0082 7.27556 15.0722 7.61167 14.9127 7.87556L14.1575 9.12389C14.0801 9.25202 13.9575 9.34976 13.8117 9.3997C13.6658 9.44965 13.5061 9.44858 13.361 9.39667L12.653 9.14333C12.4464 9.06945 12.2166 9.10333 12.0269 9.21222C11.9847 9.23673 11.9421 9.26043 11.8989 9.28333C11.7063 9.385 11.5609 9.55833 11.5242 9.76611L11.4003 10.4778C11.3479 10.7794 11.0745 11 10.7545 11H9.24523C8.92523 11 8.65236 10.7789 8.59941 10.4778L8.47548 9.76611C8.43941 9.55833 8.29396 9.385 8.10079 9.28278C8.05765 9.26006 8.01497 9.23653 7.97279 9.21222C7.7837 9.10333 7.55388 9.06945 7.34675 9.14333L6.63868 9.39667C6.49365 9.44862 6.33402 9.44978 6.18817 9.39994C6.04233 9.3501 5.91973 9.25248 5.84217 9.12445L5.08754 7.87611C5.01013 7.74794 4.98284 7.59771 5.01054 7.45213C5.03824 7.30656 5.11913 7.17509 5.23882 7.08111L5.82297 6.62167C5.99286 6.48833 6.07722 6.28111 6.07315 6.07111C6.07224 6.02389 6.07224 5.97666 6.07315 5.92944C6.07722 5.71833 5.99286 5.51222 5.82297 5.37833L5.23882 4.91889C5.11928 4.82494 5.03848 4.69357 5.01079 4.54812C4.98309 4.40267 5.01029 4.25256 5.08754 4.12444L5.84217 2.87611C5.91966 2.74785 6.04232 2.65003 6.1883 2.60008C6.33428 2.55012 6.49409 2.55127 6.63926 2.60333L7.34675 2.85667C7.55388 2.93056 7.7837 2.89667 7.97279 2.78778C8.01468 2.76333 8.05774 2.74 8.10079 2.71667C8.29396 2.615 8.43941 2.44167 8.47548 2.23389L8.59999 1.52222Z"/>
-            <path d="M11.7453 5.99998C11.7453 6.44201 11.5614 6.86593 11.2341 7.17849C10.9067 7.49105 10.4628 7.66665 9.99985 7.66665C9.53693 7.66665 9.09297 7.49105 8.76563 7.17849C8.43829 6.86593 8.25439 6.44201 8.25439 5.99998C8.25439 5.55795 8.43829 5.13403 8.76563 4.82147C9.09297 4.50891 9.53693 4.33331 9.99985 4.33331C10.4628 4.33331 10.9067 4.50891 11.2341 4.82147C11.5614 5.13403 11.7453 5.55795 11.7453 5.99998Z"/>
-          </svg>
-        </button>
-      </p>
-    </footer>
   </div>
   <base-settings></base-settings>
 </body>
