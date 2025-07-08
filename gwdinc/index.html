@@ -38,6 +38,7 @@
       --base-font-size: 1.125;
       --base-font-family: Soehne, system-ui;
       --base-line-length: 31rem;
+      --base-color-hue: 36;
       /* --base-corner-radius: 0; */
 
       /* --base-font-scale: 1.14; */
@@ -370,6 +371,63 @@
       right: .5rem;
       background: transparent;
       color: #253e29;
+    }
+
+
+    @supports 
+    (color: oklch(0 0 0)) and 
+    (color: light-dark(#000, #fff)) 
+    { 
+      section:has(h1) {
+        background-color: oklch(0.688 0.2046 var(--base-color-hue));
+      }
+
+      h1 svg {
+        fill: oklch(0.9463 0.0131 calc(var(--base-color-hue) + 36));
+      }
+
+      .intro-tab {
+        color: oklch(0.9463 0.0131 calc(var(--base-color-hue) + 36));
+      }
+
+      .intro-tab [role=tab] {
+        background-color: oklch(0.9463 0.0131 calc(var(--base-color-hue) + 36) / 10%);
+      }
+
+      .intro-tab [role=tabpanel]:not([hidden]) {
+        background-color: oklch(0.6361 0.1939 var(--base-color-hue));
+      }
+
+      .photo-tab [role=tab] {
+        background-color: oklch(0.4413 0.0571 calc(var(--base-color-hue) + 190));
+      }
+
+      .course {
+        background-color: oklch(0.8799 0.0378 calc(var(--base-color-hue) + 208));
+        color: oklch(0.4413 0.0571 calc(var(--base-color-hue) + 190));
+      }
+
+      .course__lead-highlight {
+        background-color: oklch(0.9489 0.1539 calc(var(--base-color-hue) + 86));
+      }
+
+      .course__link {
+        background-color: oklch(0.688 0.2046 var(--base-color-hue));
+      }
+
+      .work-tab [role=tab] {
+        background-color: oklch(0.9463 0.0131 calc(var(--base-color-hue) + 36) / 10.2%);
+      }
+
+      .work,
+      .work-tab [role=tabpanel] {
+        background-color: oklch(0.4413 0.0571 calc(var(--base-color-hue) + 190));
+      }
+
+      .base-settings {
+        color: oklch(0.4413 0.0571 calc(var(--base-color-hue) + 190));
+      }
+
     }
   </style>
 
