@@ -55,6 +55,8 @@
       --base-line-height-toggle: 0;
       --base-line-length-toggle: 0;
       --base-block-gap-toggle: 0;
+      --pad: clamp(14px, 5vmin, 38px);
+      --pad-btn: calc(var(--pad) / 1.5)
     }
     
     /* Reset Base */
@@ -173,18 +175,18 @@
       position: absolute;
       
       /* values from padding of intro-tab */
-      bottom: 1.25rem;
-      right: 1.25rem;
+      bottom: var(--pad-btn);
+      right: var(--pad-btn);
     }
     
     .intro-tab [role=tabpanel]:not([hidden]) {
       display: grid;
       background-color: #e8512a;
       box-shadow: 7px 7px 40px 6px #00000017;
-      padding: 1.25rem;
+      padding: var(--pad);
       align-content: space-between;
       height: 100%;
-      gap: 2rem;
+      gap: var(--pad);
     }
 
     .intro-tab__content {
@@ -223,15 +225,15 @@
       position: absolute;
 
       /* values from padding of intro-tab */
-      bottom: 1.25rem;
-      left: 1.25rem;
+      bottom: var(--pad-btn);
+      left: var(--pad-btn);
     }
 
 
 
     
     .course {
-      padding: clamp(14px, 5vmin, 38px);
+      padding: var(--pad);
       background-color: #c3dbef;
       color: #253e29;
       position: relative;
@@ -245,7 +247,7 @@
     }
 
     .course__lead {
-      font-size: clamp(1.5rem, 4vmax, 3rem);
+      font-size: clamp(1.5rem, 3.6vmax, 3rem);
       line-height: 1.2;
       font-family: "Tiempos Headline";
       font-weight: normal;
@@ -261,6 +263,7 @@
       z-index: 1;
 
       display: grid;
+      gap: var(--pad);
       height: 100%;
       align-content: space-between;
     }
@@ -299,8 +302,8 @@
 
     .work-tab [role=tablist] {
       position: absolute;
-      top: 1.25rem;
-      right: 1.25rem;
+      top: var(--pad);
+      right: var(--pad);
 
       display: flex;
       gap: .5rem;
@@ -316,7 +319,7 @@
     }
 
     .work-tab [role=tabpanel] {
-      padding: 1.25rem 0 0 1.25rem;
+      padding: var(--pad) 0 0 var(--pad);
       background-color: #2e596c;
     }
 
@@ -360,7 +363,7 @@
     .work-tab [role=tabpanel] > *:only-child {
       display: grid;
       align-content: space-between;
-      gap: 1rem;
+      gap: var(--pad);
     }
 
 
